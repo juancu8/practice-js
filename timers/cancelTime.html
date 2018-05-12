@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Timeout</title>
+</head>
+<body>
+  <h1 id='timer'>0 seconds have passed</h1>
+  <button id = 'cancel'>cancel</button>
+  <script>
+    // setTimeout(what i like do, how many time)
+
+    const timeout = setTimeout(() => {
+      document.write('5 seconds')
+    }, 5000)
+
+    //setInterval(what i'm doind, eacch x time)
+    const timer = document.getElementById('timer')
+    let counter = 0;
+    const interval = setInterval(() =>{
+      counter ++
+      timer.textContent = `${counter} seconds have passed`
+    }, 1000)
+
+    const $cancelButton = document.getElementById('cancel')
+    $cancelButton.addEventListener('click', () => {
+      clearTimeout(timeout)
+      clearInterval(interval)
+    })
+    </script>
+
+</body>
+</html>

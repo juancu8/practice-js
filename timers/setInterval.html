@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>setInterval</title>
+</head>
+<body>
+  <h1 id='timer'>0 seconds have passed</h1>
+  <script>
+
+  //setInterval(what i'm doind, eacch x time)
+  const timer = document.getElementById('timer')
+  let counter = 0;
+  setInterval(() =>{
+    counter ++
+    timer.textContent = `${counter} seconds have passed`
+  }, 1000)
+  </script>
+</body>
+</html>

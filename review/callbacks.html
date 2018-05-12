@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CallBacks</title>
+</head>
+<body>
+  <h1 id='diary'> I wake up</h1>
+  <script>
+  // uppecase for const var
+  const WAKEUP = 3000;
+  const SHOWER = 2000;
+  const DRESSED = 2000;
+  const COFFE = 3000;
+  const WORK = 5000;
+  const $diary = document.getElementById('diary')
+  setTimeout(() => {
+    $diary.textContent = `Take a shower...`
+    setTimeout(() => {
+      $diary.textContent = `Get dresed...`
+    }, DRESSED)
+    // ....
+  }, WAKEUP)
+  // Nested many callbacks, this is the clalback hell BETTER USE PROMISE
+  </script>
+</body>
+</html>

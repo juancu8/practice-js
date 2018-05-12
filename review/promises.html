@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CallBacks</title>
+</head>
+<body>
+  <h1 id='diary'> I wake up</h1>
+  <script>
+  // uppecase for const var
+  const WAKEUP = 3000;
+  const SHOWER = 2000;
+  const DRESSED = 2000;
+  const COFFE = 3000;
+  const WORK = 5000;
+  const $diary = document.getElementById('diary')
+
+  // First ok then error
+  // const wakeup = new Promise((resolve, reject)=>{
+  //   setTimeout(()=>{
+  //     resolve('I take a shower ...')
+  //   }, WAKEUP)
+  // })
+  // // then, all okk // catch, something is wrong
+  // wakeup
+  // .then((message)=>{
+  //   console.log(message)
+  // })
+  // .catch((message)=>{
+  //   console.log(message)
+  // })
+
+
+
+  const wakeup = () =>{
+    return new Promise((resolve, reject)=>{
+      setTimeout(()=>{
+          resolve('I take a shower ...')
+      }, WAKEUP)
+    });
+  }
+
+  const shower = (message) =>{
+    $diary.textContent= message
+    return new Promise((resolve, reject)=>{
+      setTimeout(()=>{
+          resolve('I get dressed ...')
+      }, SHOWER)
+    });
+  }
+
+  const dressed = (message) =>{
+    $diary.textContent= message
+    return new Promise((resolve, reject)=>{
+      setTimeout(()=>{
+          // resolve('Make coffe ...')
+          reject('Not have coffe!!!')
+      }, DRESSED)
+    });
+  }
+
+  const coffe = (message) =>{
+    $diary.textContent= message
+    return new Promise((resolve, reject)=>{
+      setTimeout(()=>{
+          // resolve('Make coffe ...')
+
+      }, COFFE)
+    });
+  }
+
+  const error = (message)=>{
+    $diary.style.color = 'red'
+    $diary.textContent= message
+  }
+
+  wakeup()
+  .then(shower)
+  .then(dressed)
+  .then(coffe)
+  .catch(error)
+
+  </script>
+</body>
+</html>
